@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+   <body>
+
+      <table border = 1>
+         {% for pr in pr_list %}
+
+            <tr>
+               <th> {{ pr_list.index(pr) }} </th>
+               <td>
+                   {{ pr }}
+               </td>
+            </tr>
+
+         {% endfor %}
+      </table>
+
+   </body>
+</html>
+
