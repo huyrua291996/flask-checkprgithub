@@ -66,12 +66,12 @@
             </div>
         </div>
     </section>
-    {% if pr_count != 0%}
+    {% if pr_enable != 0%}
     <section class="section">
         <div class="container">
             <div class="columns">
                 <div class="column is-offset-4 is-4">
-                    <div class="box">
+                    <div>
 
                         <a>
                             Number of PR: {{pr_count}}
@@ -87,7 +87,7 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-offset-4 is-4">
-                    <div class="box">
+                    <div>
                     {% for pr in pr_list %}
                     <div>
                         <article class="media">
