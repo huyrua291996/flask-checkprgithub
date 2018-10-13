@@ -1,0 +1,120 @@
+
+<!doctype html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hacktoberfest</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .hero-body {
+            background-image: url("https://user-images.githubusercontent.com/121322/45653341-78d1c000-ba8c-11e8-9497-2855130c0634.png");
+        }
+        .bottom-right
+        {
+            right: 0;
+            bottom: 0;
+            position: fixed;
+        }
+        .fa {
+            padding: 20px;
+            font-size: 30px;
+            width: 50px;
+            text-align: center;
+            text-decoration: none;
+        }
+        .fa:hover {
+            opacity: 0.5;
+        }
+        .fa-twitter {
+            color: #55ACEE;
+        }
+        .fa-github {
+            color: black;
+        }
+    </style>
+</head>
+<body >
+    <section class="hero is-primary" >
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Check your PR now!
+                </h1>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    <form method="POST">
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                <input class="input" name="user" type="text" placeholder="User Name">
+                            </div>
+                            <div class="control">
+                                <button class="button is-info">
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% if pr_count != 0%}
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    <div class="box">
+
+                        <a>
+                            Number of PR: {{pr_count}}
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    <div class="box">
+                    {% for pr in pr_list %}
+                    <div>
+                        <article class="media">
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <a href="{{pr}}">{{pr}}</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    <section class="section">
+
+    </section>
+
+        <span class="bottom-right">
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-github"></a>
+        </span>
+
+</body>
+</html>
