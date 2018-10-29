@@ -1,9 +1,11 @@
 from flask import Flask, render_template, request
 import requests
 import json
+from flask_bootstrap import Bootstrap
 
 
 app = Flask(__name__)
+Bootstrap(app)
 #user = 'huyrua291996'
 time = '2018-10'
 

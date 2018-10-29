@@ -1,20 +1,87 @@
-<!doctype html>
-<html>
-   <body>
+{% extends "bootstrap/base.html" %}
+{% block content %}
 
-      <table border = 1>
-         {% for pr in pr_list %}
+<div class="container">
+    <div class="jumbotron" style="background-color:pink">
+        <h2>PR Checker</h2>
+        <p>Hacktoberfest</p>
+    </div>
+</div>
 
-            <tr>
-               <th> {{ pr_list.index(pr) }} </th>
-               <td>
-                   {{ pr }}
-               </td>
-            </tr>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    <form method="POST">
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                <input class="input" name="user" type="text" placeholder="User Name">
+                            </div>
+                            <div class="control">
+                                <button class="button is-info">
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% if pr_enable != 0%}
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    <div>
 
-         {% endfor %}
-      </table>
+                        <a>
+                            Number of PR: {{pr_count}}
+                        </a>
 
-   </body>
-</html>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    <div>
+                    {% for pr in pr_list %}
+                    <div>
+                        <article class="media">
+                            <div class="media-left">
+                                <figure class="image is-50x50">
+                                    <img src="https://png.icons8.com/material/50/000000/compare-git.png">
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <a href="{{pr}}">{{pr}}</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    <section class="section">
+
+    </section>
+
+        <span class="bottom-right">
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-github"></a>
+        </span>
+
+
+{% endblock %}
